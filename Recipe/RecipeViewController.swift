@@ -8,6 +8,9 @@
 
 import UIKit
 import Alamofire
+//When scrolling down, the data is updated from the server,
+//When clicking on a cell, go to the site with a recipe
+//When you click on Cancel - the default data
 
 class RecipeViewController: UITableViewController, UISearchBarDelegate {
     
