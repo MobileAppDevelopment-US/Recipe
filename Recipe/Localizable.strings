@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Recipe
+
+  Created by User on 06.05.17.
+  Copyright © 2017 User. All rights reserved.
+*/
+
+// RecipeViewController
+"UpgateData" = "Идет обновление...";
+"UseDataLocalDatabase" = "Вы используете данные из локальной базы. Пожалуйста обновите данные!";
+"Attention" = "ВНИМАНИЕ!";
+"ListUpdated" = "Список рецептов обновлён";
+"ListEmpty" = "Загрузка не удалась";
+"Title" = "Recipe labs";
