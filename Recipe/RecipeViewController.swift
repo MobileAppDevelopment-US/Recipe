@@ -27,7 +27,12 @@ class RecipeViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataFromLocal()
+        
+        if self.arrayDictionaries.count > 0 {
+            dataFromLocal()
+        } else {
+            loadData()
+        }
         self.refresh = UIRefreshControl()
         self.refresh.attributedTitle = NSAttributedString(string: "UpgateData".localized)
         self.refresh.addTarget(self, action: #selector(actionRefresh), for: .valueChanged)
