@@ -52,7 +52,6 @@ class RecipeViewController: UITableViewController, UISearchBarDelegate {
     //MARK: - Data
     
     func dataFromLocal() {
-        print(self.userDefaults.hashValue)
         let yesUserDefaults = self.userDefaults.object(forKey: "arrayDictionaries")
         if (yesUserDefaults != nil) {
             self.arrayDictionaries = (yesUserDefaults as! [DataModel] as NSArray)
