@@ -28,11 +28,7 @@ class RecipeViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.arrayDictionaries.count > 0 {
-            dataFromLocal()
-        } else {
-            loadData()
-        }
+        dataFromLocal()
         self.refresh = UIRefreshControl()
         self.refresh.attributedTitle = NSAttributedString(string: "UpgateData".localized)
         self.refresh.addTarget(self, action: #selector(actionRefresh), for: .valueChanged)
@@ -53,11 +49,19 @@ class RecipeViewController: UITableViewController, UISearchBarDelegate {
         loadData()
     }
     
+    //MARK: - Data
+    
     func dataFromLocal() {
-        self.arrayDictionaries = (self.userDefaults.object(forKey: "arrayDictionaries") as! [DataModel] as NSArray)
-        createModels()
-        self.tableView.reloadData()
-        showAlert(withMessage: "UseDataLocalDatabase".localized, andTitle: "Attention".localized)
+        print(self.userDefaults.hashValue)
+        let yesUserDefaults = self.userDefaults.object(forKey: "arrayDictionaries")
+        if (yesUserDefaults != nil) {
+            self.arrayDictionaries = (yesUserDefaults as! [DataModel] as NSArray)
+            createModels()
+            self.tableView.reloadData()
+            showAlert(withMessage: "UseDataLocalDatabase".localized, andTitle: "Attention".localized)
+        } else {
+            loadData()
+        }
     }
     
     func loadData() {
